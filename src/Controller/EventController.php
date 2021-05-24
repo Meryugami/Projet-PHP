@@ -1,5 +1,5 @@
 <?php
-
+    ////Controller correspondant aux gestions d'évènement
 namespace App\Controller;
 
 use App\Entity\Comment;
@@ -17,6 +17,8 @@ class EventController extends AbstractController
     /**
      * @Route("/{_locale}/event/create", name="event_create")
      */
+
+    //Permet de crée un évènement
     public function eventCreate(
         Request $request
     ): Response {
@@ -43,6 +45,8 @@ class EventController extends AbstractController
     /**
      * @Route("/{_locale}/event/modify/{id}", name="event_modify")
      */
+
+    //Permet de modifier un évènement
     public function eventModify(Event $event, Request $request): Response
     {
         $eventForm = $this->createForm(EventForm::class, $event);
@@ -65,6 +69,8 @@ class EventController extends AbstractController
     /**
      * @Route("/event/delete/{id}", name="event_delete")
      */
+
+    //Permet de supprimer un évènement
     public function deleteEvent(Event $event): Response
     {
         $em = $this->getDoctrine()->getManager();
@@ -77,6 +83,8 @@ class EventController extends AbstractController
     /**
      * @Route("/{_locale}/event/{id}", name="event_show")
      */
+
+    //Afficheage des évènement triée par date de début (asc) limité a 3 évènements
     public function eventShow(Event $event, Request $request)
     {
         $comment = new Comment();
@@ -108,6 +116,9 @@ class EventController extends AbstractController
     /**
      * @Route("/association/user/event/{id}", name="association_user_event")
      */
+
+
+    //Associe un utilisateur avec un event
     public function associateUserWithEvent(Event $event)
     {
         $event->addParticipant($this->getUser());
@@ -120,6 +131,8 @@ class EventController extends AbstractController
     /**
      * @Route("/deleteAssociation/user/event/{id}", name="delete_association")
      */
+
+    //Supprime l'association d'un utilisateur/event
     public function deleteAssociation(Event $event)
     {
         $event->removeParticipant($this->getUser());

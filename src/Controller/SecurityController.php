@@ -1,5 +1,5 @@
 <?php
-
+        //Gestion de tout ce qui concerne la sécurité
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +12,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/", name="redirection")
      */
+    //Redirection vers le login
     public function redirectedToLogin()
     {
         return $this->redirectToRoute('app_login');
@@ -20,6 +21,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/{_locale}/", name="app_login")
      */
+
+    //Fonction pour se connecter avec vérification dans la base de donnée
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
          if ($this->getUser()) {
@@ -40,6 +43,8 @@ class SecurityController extends AbstractController
     /**
      * @Route("/{_locale}/logout/", name="app_logout")
      */
+
+    // Permet de se déco 
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

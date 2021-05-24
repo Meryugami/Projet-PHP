@@ -1,5 +1,6 @@
 <?php
-
+        //Génération des fixtures pour les utilisation
+        //L'utilisateur Admin sera systématiquement crée avec le doctrine:fixture:load
 namespace App\DataFixtures;
 
 use App\Entity\User;

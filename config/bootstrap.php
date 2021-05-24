@@ -1,5 +1,5 @@
 <?php
-
+	// Fichier sur lequel je trouve le lien avec un bootstrap
 use Symfony\Component\Dotenv\Dotenv;
 
 require dirname(__DIR__).'/vendor/autoload.php';

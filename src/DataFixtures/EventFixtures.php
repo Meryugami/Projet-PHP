@@ -1,5 +1,5 @@
 <?php
-
+    //Génération des fixtures pour les évènements
 namespace App\DataFixtures;
 
 use App\Entity\Event;
@@ -25,19 +25,6 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($event);
         }
 
-        
-
-        /*
-        $ex1= new Event();
-        $ex1->SetName('Anselme');
-        $ex1->setAddress('Nantes');
-        $date=new DateTime();
-        $date->setDate(2100,2,3);
-        $ex1->setDateStart($faker->$date);
-        $ex1->setDateEnd($faker->$date);
-        $ex1->setUser($this->getReference('user_'.rand(0, 5)));
-        $manager->persist($ex1);
-		*/
 
 		$manager->flush();
     }

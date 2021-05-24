@@ -18,7 +18,7 @@ class EventRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Event::class);
     }
-
+        //Permet de rechercher les évènement qui arrivent (6max) 
     public function findRecentEvents()
     {
         return $this->createQueryBuilder('e')

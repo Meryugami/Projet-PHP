@@ -1,5 +1,5 @@
 <?php
-
+        //Fonction et procédures liée a l'utilisateur
 namespace App\Controller;
 
 use App\Entity\Comment;
@@ -17,6 +17,8 @@ class UserController extends AbstractController
     /**
      * @Route("/{_locale}/profile", name="profile")
      */
+
+    //Affiche tout les utilisateurs (pour l'admin)
     public function index(): Response
     {
         $user = $this->getUser();
@@ -38,6 +40,8 @@ class UserController extends AbstractController
     /**
      * @Route("/user/modifyInformations/{id}", name="user_modify_informations")
      */
+
+        //Modification des informations d'un utilsateur
     public function modifyInformations(User $user, Request $request, UserPasswordEncoderInterface $userPasswordEncoder): Response
     {
         $userForm = $this->createForm(UserForm::class, $user);

@@ -1,5 +1,5 @@
 <?php
-
+        // class représentant l'objet utilsateur
 namespace App\Entity;
 
 use App\Repository\UserRepository;

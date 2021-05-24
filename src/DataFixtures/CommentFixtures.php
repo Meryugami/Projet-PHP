@@ -1,5 +1,5 @@
 <?php
-
+        //Génération des fixtures pour les commentaires
 namespace App\DataFixtures;
 
 use App\Entity\Comment;

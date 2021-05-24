@@ -1,5 +1,5 @@
 <?php
-
+        //Formulare pour la connexion (login)
 namespace App\Security;
 
 use App\Entity\User;

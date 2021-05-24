@@ -1,5 +1,5 @@
 <?php
-
+	// Une liste de tous les bundle inclue dans le projet
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],

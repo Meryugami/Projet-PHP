@@ -1,5 +1,5 @@
 <?php
-
+        // class représentant l'objet comment
 namespace App\Entity;
 
 use App\Repository\CommentRepository;

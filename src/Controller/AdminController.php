@@ -1,5 +1,5 @@
 <?php
-
+	//Controller correspondant a la page de l'admin (contient toutes les procédures et fonction)
 namespace App\Controller;
 
 use App\Entity\User;
@@ -16,6 +16,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/{_locale}/admin", name="admin_index")
      */
+
+    //Permet l'affichage des différents utilisateurs
     public function index(Request $request): Response
     {
         $users = $this->getDoctrine()->getManager()
@@ -41,6 +43,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/{_locale}/admin/createUser", name="admin_create_user")
      */
+
+    //Gestion de l'action crée un utilisateur
     public function register(
         Request $request,
         UserPasswordEncoderInterface $userPasswordEncoder
@@ -71,6 +75,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/{_locale}/admin/modifyUser/{id}", name="admin_modify_user")
      */
+
+    //Gestion de la modification d'un utilisateur
     public function modifyUser(User $user, Request $request, UserPasswordEncoderInterface $userPasswordEncoder): Response
     {
         $userForm = $this->createForm(UserForm::class, $user);
@@ -97,6 +103,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/deleteUser/{id}", name="admin_delete_user")
      */
+
+    //Gestion de la suppression d'un utilisateur
     public function deleteUser(User $user): Response
     {
         $em = $this->getDoctrine()->getManager();
@@ -109,6 +117,8 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/setAdmin/{id}", name="admin_set_admin")
      */
+
+    //Correspond au bouton pour donner les droits d'admnistrateur a un autre utilisateur
     public function setAdmin(User $user): Response
     {
         $em = $this->getDoctrine()->getManager();

@@ -1,5 +1,5 @@
 <?php
-
+	//Fichier générer automatiquement par Kernel
 use App\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;

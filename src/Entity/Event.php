@@ -1,5 +1,5 @@
 <?php
-
+        // class représentant l'objet évènement
 namespace App\Entity;
 
 use App\Repository\EventRepository;
