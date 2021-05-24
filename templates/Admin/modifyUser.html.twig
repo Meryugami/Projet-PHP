@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Administration- Créer un utilisateur{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block body %}
+    {% include 'navbarAdmin.html.twig' %}
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    {{ "modify_user"|trans }}
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-3">
+                            <label>{{ "username"|trans }}</label>
+                            {{ form_widget(form.username) }}
+                            {{ form_widget(form.password) }}
+                            <label>{{ "firstname"|trans }}</label>
+                            {{ form_widget(form.firstname) }}
+                            <label>{{ "lastname"|trans }}</label>
+                            {{ form_widget(form.lastname) }}
+                            <input type="submit" class="btn btn-success" value="{{ "modify"|trans }}">
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

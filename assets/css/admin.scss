@@ -1,0 +1,42 @@
+.card {
+  width:90vw;
+  border: 1px solid #0d6efd;
+  margin-top: 5vh;
+  .card-header {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+  }
+}
+
+.row-title-admin {
+  background-color: white;
+  border-bottom: 1px solid black;
+  margin: 0 0 3vh 0;
+  padding-bottom: 0;
+  height: 50px;
+
+  h1 {
+    margin-top: 2vh;
+    font-size: calc(1vw + 10px);
+    text-transform: uppercase;
+
+    a {
+      color: dodgerblue;
+    }
+  }
+
+  .col-btn-title {
+    margin-top: 1vh;
+
+    a {
+      background-color: dodgerblue;
+      box-shadow: none;
+      color: white;
+    }
+  }
+}
+
+input {
+  margin-bottom: 2vh;
+}

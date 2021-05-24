@@ -1,0 +1,22 @@
+{{ form_start(userForm, {'action': path('user_modify_informations', {'id': app.user.id})}) }}
+<div class="row">
+    <div class="col-6">
+        <label>{{ "firstname"|trans }}</label>
+        {{ form_widget(userForm.firstname) }}
+    </div>
+    <div class="col-6">
+        <label>{{ "lastname"|trans }}</label>
+        {{ form_widget(userForm.lastname) }}
+    </div>
+    <div class="col-12 mt-3">
+        <label>{{ "username"|trans }}</label>
+        {{ form_widget(userForm.username) }}
+    </div>
+    <div class="col-12 mt-3">
+        {{ form_widget(userForm.password) }}
+    </div>
+    <div class="col-12">
+        <input type="submit" class="btn btn-primary" style="margin-top: 2vh;" value="{{ "modify"|trans }}">
+    </div>
+    {{ form_end(userForm) }}
+</div>

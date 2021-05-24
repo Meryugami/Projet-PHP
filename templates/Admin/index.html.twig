@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block body %}
+    {% include 'navbarAdmin.html.twig' %}
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    {{ "listing_user_title"|trans }}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-success" href="{{ path('admin_create_user') }}">{{ "create_new_user"|trans }}</a>
+                        </div>
+                        <div class="col-6">
+                            {{ form_start(researchForm) }}
+                            {{ form_widget(researchForm.research) }}
+                            <input type="submit" class="btn btn-success" value="{{ "research"|trans }}"/>
+                            {{ form_end(researchForm) }}
+                        </div>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">{{ "username"|trans }}</th>
+                            <th scope="col">{{ "firstname"|trans }}</th>
+                            <th scope="col">{{ "lastname"|trans }}</th>
+                            <th scope="col">{{ "modify"|trans }}</th>
+                            <th scope="col">{{ "delete"|trans }}</th>
+                            <th scope="col">{{ "set_admin"|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.lastname }}</td>
+                                <td><a href="{{ path('admin_modify_user', {'id': user.id}) }}" class="btn btn-warning">{{ "modify"|trans }}</a></td>
+                                {% set adminRole = false %}
+                                {% for role in user.roles %}
+                                    {% if role == 'ROLE_ADMIN' %}
+                                        {% set adminRole = true %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if adminRole == false %}
+                                    <td><a href="{{ path('admin_delete_user', {'id': user.id}) }}" class="btn btn-danger">{{ "delete"|trans }}</a></td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                                <td><a href="{{ path('admin_set_admin', {'id': user.id}) }}" class="btn btn-success">{{ "promotion"|trans }}</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{{ form_start(form, {'action': path('event_modify', {'id': form.vars['data'].id})}) }}
+<div class="row">
+    <div class="col-12">
+        <label>Nom de l'évenement</label>
+        {{ form_widget(form.name) }}
+    </div>
+    <div class="col-12">
+        <label>Adresse de l'évenement</label>
+        {{ form_widget(form.address) }}
+    </div>
+    <div class="col-6">
+        <label>Date de début</label>
+        {{ form_widget(form.dateStart) }}
+    </div>
+    <div class="col-6">
+        <label>Date de fin</label>
+        {{ form_widget(form.dateEnd) }}
+    </div>
+    <div class="col-12">
+        <input type="submit" class="btn btn-primary" style="margin-top: 2vh;" value="Modifier l'évenement">
+    </div>
+    {{ form_end(form) }}
+</div>

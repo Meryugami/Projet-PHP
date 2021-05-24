@@ -1,0 +1,108 @@
+.row {
+  margin-right: 0;
+}
+
+.card-header {
+  background-color: #e3f2fd;
+}
+.card-body {
+  background-color: rgba(0, 0, 0, .03);
+}
+
+
+.my-informations {
+  margin: 2vh 0 2vh 2vw;
+  .card-body {
+    .information {
+      font-weight: bold;
+      margin-top: -3vh;
+    }
+    .modify-informations {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      color: grey;
+      text-decoration: underline;
+    }
+    .modify-informations:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.my-comments {
+  margin: 2vh 0 2vh 0;
+  .bold {
+    font-weight: bold;
+  }
+  .content {
+    font-size: 12px;
+  }
+  .date-comment {
+    text-align: end;
+    font-size: 12px;
+  }
+}
+
+.my-events {
+  margin: 2vh 0 2vh 0;
+  .button-create-event {
+    border: none;
+    float: right;
+    background-color: transparent;
+    .fa-plus-circle {
+      color: green;
+    }
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .edit {
+    background-color: transparent;
+    border: none;
+    .fa-edit {
+      color: orange;
+    }
+  }
+  .fa-trash-alt {
+    color: red;
+  }
+}
+
+.my-participations {
+  margin: 2vh 0 2vh 0;
+  .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .fa-trash-alt {
+    color: red;
+  }
+}
+
+.dark-theme {
+  .my-events, .my-informations, .my-comments {
+    border: none;
+  }
+  .card {
+    border: 1px #565656 solid;
+    .card-header {
+      background-color: #2D241E;
+    }
+    .card-body {
+      background-color: #202020;
+    }
+  }
+  hr {
+    color: white;
+    border-color: white;
+    background-color: white;
+  }
+
+  .modal-content {
+    background-color: #2D241E;
+  }
+}

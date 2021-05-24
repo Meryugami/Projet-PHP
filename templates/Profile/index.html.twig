@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('profile') }}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-3">
+            <div class="my-informations">
+                <div class="card">
+                    <h5 class="card-header">{{ "my_informations"|trans }}</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>{{ "firstname"|trans }} </p>
+                                <p class="information">{{ app.user.firstname }}</p>
+                                <p>{{ "lastname"|trans }}</p>
+                                <p class="information">{{ app.user.lastname }}</p>
+                            </div>
+                            <div class="col-6">
+                                <img class="img-fluid" src="{{ asset('icon/user_icon.jpg') }}"/>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="modify-informations" data-toggle="modal" data-target="#modal-edit-informations">{{ "modify_informations"|trans }}</button>
+                            </div>
+                            <div class="modal fade" id="modal-edit-informations" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">{{ "modify_informations"|trans }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{ render(controller('App\\Controller\\UserController::modifyInformations', {'id': app.user.id})) }}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ "close"|trans }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="my-events">
+                <div class="card">
+                    <h5 class="card-header">{{ "my_events"|trans }}<button type="button" class="button-create-event" data-target="#modal-create-event" data-toggle="modal"><i class="fas fa-plus-circle"></i></button></h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                {% if events is empty %}
+                                    <p>{{ "no_events"|trans }}</p>
+                                    <button type="button" data-target="#modal-create-event" data-toggle="modal" class="btn btn-success">{{ "create_your_event"|trans }}</button>
+                                {% endif %}
+                                {% for event in events %}
+                                    <div class="header">
+                                        <h5>{{ event.name }}</h5>
+                                        <div class="right-icons">
+                                            <button type="button" class="edit" data-toggle="modal" data-target="#modal-edit-event{{ event.id }}"><i class="fas fa-edit"></i></button>
+                                            <a href="{{ path('event_delete', {'id': event.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <p>{{ "from"|trans }} {{ event.dateStart|localizeddate('medium', 'short', 'fr') }} {{ "to"|trans }} {{ event.dateEnd|localizeddate('medium', 'short', 'fr') }}</p>
+                                    <div class="modal fade" id="modal-edit-event{{ event.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">{{ "modify_event"|trans }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ render(controller('App\\Controller\\EventController::eventModify', {'id': event.id})) }}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ "close"|trans }}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                {% endfor %}
+                            </div>
+                            <div class="modal fade" id="modal-create-event" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">{{ "create_your_event"|trans }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{ render(controller('App\\Controller\\EventController::eventCreate')) }}
+                                            </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ "close"|trans }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-participations">
+                <div class="card">
+                    <h5 class="card-header">{{ "my_participations"|trans }}</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            {% if app.user.eventsWhichIParticipate is empty %}
+                                <div class="col-12">
+                                    <p>{{ "no_participation"|trans }}</p>
+                                </div>
+                            {% endif %}
+                            {% for participation in app.user.eventsWhichIParticipate %}
+                                <div class="col-12">
+                                    <div class="flex">
+                                        <div class="infos">
+                                            <p>{{ participation.name }}</p>
+                                            <p class="little_date">{{ participation.dateStart|localizeddate('medium', 'short', app.request.locale) }}</p>
+                                        </div>
+                                        <a href="{{ path('delete_association', {'id': participation.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                    <hr/>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="my-comments">
+                <div class="card">
+                    <h5 class="card-header">{{ "my_comments"|trans }}</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                {% if comments is empty %}
+                                    <p>{{ "no_comments"|trans }}</p>
+                                {% endif %}
+                                {% for comment in comments %}
+                                    <h6>{{ "on_event"|trans }}: <span class="bold">{{ comment.event.name }}</span></h6>
+                                    <p class="content">{{ comment.content }}</p>
+                                    <div class="row justify-content-end">
+                                        <div class="col-6">
+                                            <p class="date-comment">{{ "the"|trans }} {{ comment.date|localizeddate('medium', 'none', app.request.locale) }}</p>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

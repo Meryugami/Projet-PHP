@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light" id="navbar">
+    <a class="navbar-brand" href="{{ path('home') }}">{{ "welcome"|trans }}</a>
+    {% if "ROLE_ADMIN" in app.user.roles %}
+        <a class="navbar-brand" href="{{ path('admin_index') }}">Admin</a>
+    {% endif %}
+    {% if app.request.locale == 'fr' %}
+        <a class="navbar-brand" href="/en/home">{{ "english"|trans }}</a>
+    {% else %}
+        <a class="navbar-brand" href="/fr/home">{{ "french"|trans }}</a>
+    {% endif %}
+</div>
+<div class="right-side-navbar row">
+    <div class="switchColor">
+        <label class="switch">
+            <input type="checkbox" id="switchColor">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    </div>
+    <a class="navbar-brand" href="{{ path('profile') }}"><i class="fas fa-user-circle"></i></a>
+</nav>

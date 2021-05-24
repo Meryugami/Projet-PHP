@@ -1,0 +1,57 @@
+.card {
+  margin-bottom: 4vh;
+  .card-footer {
+    padding: 0;
+  }
+}
+.showEvents {
+  padding-top: 10vh;
+}
+
+.events {
+  margin-top: 5vh;
+}
+
+.btn-comment {
+  margin-bottom: 2vh;
+  border: none;
+  background-color: initial;
+  font-size: 20px;
+  margin-top: 2vh;
+}
+.comment {
+  text-align: left;
+  padding: 2vh 2vw 0 2vw;
+  .author {
+    text-align: right;
+  }
+}
+
+.go-to-event {
+  color: black;
+}
+.go-to-event:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.dark-theme {
+  .container {
+    background-color: #0d1117;
+    .card {
+      background-color: #343a40;
+      .btn-primary {
+        color: black;
+        background-color: white !important;
+        border-color: black;
+      }
+    }
+    .go-to-event {
+      color: white;
+    }
+    .go-to-event:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

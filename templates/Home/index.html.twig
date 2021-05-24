@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'acceuil{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row showEvents">
+            <div class="col-12 text-center">
+                <h1>{{ "title_homepage"|trans }}</h1>
+
+                <div class="events">
+                    <div class="row justify-content-center">
+                    {% for event in events %}
+                        <div class="col-8">
+                            <div class="card text-center">
+                                <a class="go-to-event" href="{{ path('event_show', {'id': event.id}) }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ event.name }}</h5>
+                                        <p class="card-text">{{ event.address }}</p>
+                                        <p>{{ event.dateStart|date('d-m-Y H:i', "Europe/Paris")|localizeddate('medium', 'short', app.request.locale) }} - {{ event.dateEnd|date('d-m-Y H:i', "Europe/Paris")|localizeddate('medium', 'short', app.request.locale) }}</p>
+                                        <a class="btn btn-primary" href="{{ path('association_user_event', {'id': event.id}) }}">{{ "participate"|trans }}</a>
+                                    </div>
+                                </a>
+                                <div class="card-footer">
+                                    <div id="collapseComment{{ event.id }}" class="collapse">
+                                        {% for comment in event.comments %}
+                                            <div class="comment">
+                                                <div class="text">
+                                                    <p>{{ comment.content }}</p>
+                                                </div>
+                                                <div class="author">
+                                                    <p>{{ "by"|trans }} {{ comment.user.username }}, {{ "the"|trans }} {{ comment.date|date('d m Y') }}</p>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                        {% endfor %}
+                                    </div>
+                                    <button class="btn-comment" data-toggle="collapse" data-target="#collapseComment{{ event.id }}">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

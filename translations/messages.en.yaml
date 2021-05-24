@@ -1,0 +1,73 @@
+#Login
+
+connect: Connect yourself
+username: Username
+password: Password
+connect_button: Connect
+
+
+#Homepage
+
+title_homepage: Events coming
+see_comments: See the comments
+more_comments: More comments
+
+
+#Profile
+
+title_profile: My profile
+
+
+#Evenement
+
+created_by: Created by
+by: By
+the: the
+send: Send
+comments: Comments
+written_by: Written by
+create_your_event: Create your event
+text_create_your_event_1: Do you want to create your event ? Go to your profile by clicking
+text_create_your_event_2: to do so
+here: here
+participate: I participate
+no_participation: You don't participate to any events
+my_informations: My informations
+modify_informations: Modify my informations
+close: Close
+my_events: My events
+from: From
+to: to
+no_events: You did not create any events
+modify_event: Modify the event
+my_participations: My participations
+my_comments: My comments
+no_comments: You do not have any comments
+on_event: On event
+
+#Navbar
+
+welcome: Home
+my_account: My account
+
+#NavbarAdmin
+
+admin_panel: Administration panel
+logout: Logout
+back_to_index: Back to index
+
+#Admin
+
+listing_user_title: User listing
+create_new_user: Create new user
+firstname: Firstname
+lastname: Lastname
+modify: Modify
+delete: Delete
+set_admin: Set Admin
+promotion: Upgrade
+create: Create
+password_one: Password
+password_two: Confirm password
+modify_user: Modify user
+research: Research

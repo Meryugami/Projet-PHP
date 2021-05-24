@@ -1,0 +1,62 @@
+body {
+  background-color: #f4f7f7;
+}
+.container {
+  background-color: transparent;
+}
+.row-event {
+  margin-top: 4vh;
+  .event-description {
+    background-color: white;
+    padding: 4vh 2vw 4vh 2vw;
+    box-shadow: 3px 3px 16px rgb(0 0 0 / 16%);
+    .div-event-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .write-a-comment {
+      margin-top: 8vh;
+    }
+    .event-comments {
+      margin-top: 8vh;
+      .comments {
+        margin-top: 3vh;
+        .comment-content {
+          text-indent: 2vw;
+          font-size: 13px;
+        }
+        .author {
+          font-size: 13px;
+          text-align: end;
+          .date {
+            margin-top: -3vh;
+          }
+        }
+      }
+    }
+  }
+}
+
+.last-events {
+  background-color: white;
+  padding: 4vh 2vw 4vh 2vw;
+  box-shadow: 3px 3px 16px rgb(0 0 0 / 16%);
+}
+
+.create-your-event {
+  margin-top: 4vh;
+  background-color: white;
+  padding: 4vh 2vw 4vh 2vw;
+  box-shadow: 3px 3px 16px rgb(0 0 0 / 16%);
+}
+
+.dark-theme {
+  .event-description, .last-events ,.create-your-event {
+    background-color: #565656;
+  }
+  hr {
+    border-color: white;
+    background-color: white;
+  }
+}

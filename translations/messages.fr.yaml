@@ -1,0 +1,80 @@
+#Login
+connect: Connectez-vous
+username: Nom d'utilisateur
+password: Mot de passe
+connect_button: Se connecter
+
+#Homepage
+
+title_homepage: Evenement à venir
+see_comments: Voir les commentaires
+more_comments: Plus de commentaires
+
+
+#Profile
+
+title_profile: Mon profile
+
+#Evenement
+
+created_by: Créé par
+by: Par
+the: le
+send: Envoyer
+comments: Commentaires
+written_by: Ecrit par
+create_your_event: Créer votre évenement
+text_create_your_event_1: Vous souhaitez créer votre évenement ? Rendez-vous dans votre partie profil en cliquant
+text_create_your_event_2: pour le faire !
+here: ici
+participate: Je participe
+no_participation: Vous ne participez à aucun évenement
+my_informations: Mes informations
+modify_informations: Modifier mes informations
+close: Fermer
+my_events: Mes évenements
+from: Du
+to: au
+no_events: Vous n'avez créé aucun évenement
+modify_event: Modifier l'évenement
+my_participations: Mes participations
+my_comments: Mes commentaires
+no_comments: Vous n'avez posté aucun commentaire
+on_event: Sur l'évenement
+
+
+
+
+
+
+
+
+
+#Navbar
+
+welcome: Accueil
+my_account: Mon compte
+english: En
+french: Fr
+
+#NavbarAdmin
+
+admin_panel: Panneau d'administration
+logout: Deconnexion
+back_to_index: Retour à l'index
+
+#Admin
+
+listing_user_title: Listing Utilisateur
+create_new_user: Créer un nouvel utilisateur
+firstname: Prénom
+lastname: Nom
+modify: Modifier
+delete: Supprimer
+set_admin: Mettre admin
+promotion: Promouvoir
+create: Créer
+password_one: Mot de passe
+password_two: Confirmer mot de passe
+modify_user: Modifier un utilisateur
+research: Rechercher

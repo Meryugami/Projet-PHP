@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('event') }}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row row-event">
+            <div class="col-8">
+                <div class="event-description">
+                    <div class="div-event-title">
+                        <h3>{{ event.name }}</h3>
+                        <p>{{ "created_by"|trans }} {{ event.user.username }}</p>
+                    </div>
+                    <a class="btn btn-primary" href="{{ path('association_user_event', {'id': event.id}) }}">{{ "participate"|trans }}</a>
+                    <hr/>
+                    <div class="div-event-duration">
+                        <p>{{ event.dateStart|localizeddate('medium', 'short', app.request.locale) }} - {{ event.dateEnd|localizeddate('medium', 'short', app.request.locale) }}</p>
+                    </div>
+                    <div class="write-a-comment">
+                        {{ form_start(commentForm) }}
+                        <div class="row">
+                            <div class="col-8">
+                                {{ form_widget(commentForm.content) }}
+                            </div>
+                            <div class="col-8">
+                                <input type="submit" class="btn btn-primary" value="{{ "send"|trans }}"/>
+                            </div>
+                        </div>
+                        {{ form_end(commentForm) }}
+                    </div>
+                    <hr/>
+                    <div class="event-comments">
+                        <h5>{{ "comments"|trans }}</h5>
+                        <div class="comments">
+                            {% for comment in event.comments %}
+                                <p class="comment-content">{{ comment.content }}</p>
+                                <div class="author row justify-content-end">
+                                    <div class="col-6">
+                                        <p>{{ "written_by"|trans }} {{ comment.user.username }}</p>
+                                        <p class="date">{{ "the"|trans }} {{ comment.date|localizeddate('medium', 'none', app.request.locale) }}</p>
+                                    </div>
+                                </div>
+                                <hr/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="last-events">
+                    <p class="title-last-events">{{ "title_homepage"|trans }}</p>
+                    <hr/>
+                    {% for event in incomingEvents %}
+                        <a href="{{ path('event_show', {'id': event.id}) }}">{{ event.name }}</a><br/>
+                    {% endfor %}
+                </div>
+                <div class="create-your-event">
+                    <p class="title-last-events">{{ "create_your_event"|trans }}</p>
+                    <hr/>
+                    <p>{{ "text_create_your_event_1"|trans }} <a href="{{ path('profile') }}">{{ "here"|trans }}</a> {{ "text_create_your_event_2"|trans }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

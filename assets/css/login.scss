@@ -1,0 +1,30 @@
+body {
+  background-color: #DCDCDC;
+  .container {
+    background-color: #DCDCDC;
+  }
+  .col-login {
+    border-radius: 15px;
+    margin-top: 10vh;
+    background-color: white;
+    .div-login {
+      padding: 4vh 4vw 4vh 4vw;
+      h1 {
+        text-align: center;
+        color: #1E90FF;
+      }
+      form {
+        margin-top: 10vh;
+        label {
+          margin-bottom: 1vh;
+        }
+        input {
+          margin-bottom: 2vh;
+        }
+        button {
+          margin-top: 4vh;
+        }
+      }
+    }
+  }
+}
